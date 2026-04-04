@@ -1,0 +1,81 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="root" class="root">
+        <ui:VisualElement class="tab-bar">
+            <ui:Button name="tab-guide" text="Guide" class="tab-button tab-active"/>
+            <ui:Button name="tab-settings" text="Settings" class="tab-button"/>
+            <ui:Button name="tab-tables" text="Tables" class="tab-button"/>
+        </ui:VisualElement>
+
+        <ui:ScrollView name="panel-guide" class="panel">
+            <ui:VisualElement class="section">
+                <ui:Label text="1. MemoryPack (Optional)" class="section-title"/>
+                <ui:Label class="section-body" text="AchEngine works without MemoryPack by falling back to JSON. Install it if you want faster binary serialization.&#10;&#10;UPM Git URL:&#10;https://github.com/Cysharp/MemoryPack.git?path=src/MemoryPack.Unity/Assets/Plugins/MemoryPack&#10;&#10;Installing it defines the ACHENGINE_MEMORYPACK symbol automatically."/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="2. VContainer (Optional)" class="section-title"/>
+                <ui:Label class="section-body" text="AchEngine also works without VContainer by using UIBootstrapper and TableManager. Install VContainer when you want dependency injection and AchEngineScope support.&#10;&#10;UPM Git URL:&#10;https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.16.7&#10;&#10;Installing it defines the ACHENGINE_VCONTAINER symbol automatically."/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="3. Spreadsheet Setup" class="section-title"/>
+                <ui:Label class="section-body" text="Paste the Google Spreadsheet ID from your sheet URL. Each sheet row in the settings also needs its gid value from the same URL.&#10;&#10;Example:&#10;https://docs.google.com/spreadsheets/d/{spreadsheetId}/edit?gid={sheetGid}"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="4. CSV Schema" class="section-title"/>
+                <ui:Label class="section-body" text="Row 1: field names (first column should usually be Id)&#10;Row 2: field types (int, float, string, bool, long, double, int[], float[], string[])&#10;Row 3+: data rows&#10;&#10;Columns starting with # are ignored. Arrays can be separated with | or ;."/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="5. Runtime Usage" class="section-title"/>
+                <ui:Label class="section-body" text="With VContainer:&#10;[Inject] readonly ITableService tableService;&#10;[Inject] readonly IUIService uiService;&#10;&#10;TableLoaderGenerated.LoadAll(tableService);&#10;uiService.Show(&quot;MainMenu&quot;);&#10;&#10;Without VContainer:&#10;TableLoaderGenerated.LoadAll();&#10;var monster = TableManager.Get&lt;MonsterData&gt;(1);&#10;UI.Show(&quot;MainMenu&quot;);"/>
+            </ui:VisualElement>
+        </ui:ScrollView>
+
+        <ui:ScrollView name="panel-settings" class="panel panel-hidden">
+            <ui:VisualElement class="section">
+                <ui:Label text="Google Spreadsheet" class="section-title"/>
+                <ui:TextField name="field-spreadsheet-id" label="Spreadsheet ID"/>
+                <ui:Button name="btn-open-sheet" text="Open in Browser" class="btn-secondary"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="Paths" class="section-title"/>
+                <ui:TextField name="field-csv-path" label="CSV Output Path"/>
+                <ui:TextField name="field-code-path" label="Generated Code Path"/>
+                <ui:TextField name="field-binary-path" label="Binary Output Path"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="Automation" class="section-title"/>
+                <ui:Toggle name="toggle-auto-generate" label="Auto-generate after download"/>
+                <ui:Toggle name="toggle-auto-bake" label="Auto-bake after code generation"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="Sheets" class="section-title"/>
+                <ui:VisualElement name="sheet-list-container"/>
+                <ui:Button name="btn-add-sheet" text="+ Add Sheet" class="btn-primary"/>
+            </ui:VisualElement>
+
+            <ui:Button name="btn-save-settings" text="Save Settings" class="btn-primary btn-large"/>
+        </ui:ScrollView>
+
+        <ui:ScrollView name="panel-tables" class="panel panel-hidden">
+            <ui:VisualElement class="action-bar">
+                <ui:Button name="btn-download-all" text="Download All" class="btn-primary"/>
+                <ui:Button name="btn-generate-all" text="Generate All" class="btn-primary"/>
+                <ui:Button name="btn-bake-all" text="Bake All" class="btn-primary"/>
+                <ui:Button name="btn-all-in-one" text="All-in-One" class="btn-accent"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="table-status-container"/>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="Status" class="section-title"/>
+                <ui:Label name="label-status" text="Ready" class="status-label"/>
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

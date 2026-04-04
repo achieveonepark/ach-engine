@@ -1,0 +1,74 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="root" class="root">
+        <ui:VisualElement class="tab-bar">
+            <ui:Button name="tab-guide" text="Guide" class="tab-button tab-active"/>
+            <ui:Button name="tab-catalog" text="Catalog" class="tab-button"/>
+            <ui:Button name="tab-scene" text="Scene" class="tab-button"/>
+        </ui:VisualElement>
+
+        <ui:ScrollView name="panel-guide" class="panel">
+            <ui:VisualElement class="section">
+                <ui:Label text="1. Create a UIView" class="section-title"/>
+                <ui:Label class="section-body" text="Create a MonoBehaviour that inherits from UIView and implement the lifecycle hooks you need. Common hooks are OnInitialize, OnBeforeOpen, OnOpened, OnBeforeClose, and OnClosed."/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="2. Build a Catalog" class="section-title"/>
+                <ui:Label class="section-body" text="Create a UIViewCatalog asset and register each view with a unique ID, prefab, layer, pooling option, and single-instance preference."/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="3. Scene Setup" class="section-title"/>
+                <ui:Label class="section-body" text="Without VContainer, place UIRoot and UIBootstrapper in your scene. With VContainer, use AchEngineScope and assign a UIViewCatalog to register IUIService automatically."/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="4. Runtime API" class="section-title"/>
+                <ui:Label class="section-body" text="With VContainer:&#10;[Inject] readonly IUIService uiService;&#10;uiService.Show(&quot;MainMenu&quot;);&#10;uiService.Close(&quot;MainMenu&quot;);&#10;&#10;Without VContainer:&#10;UI.Show(&quot;MainMenu&quot;);&#10;UI.Close(&quot;MainMenu&quot;);&#10;UI.CloseTopmost();"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="5. Layers and Transitions" class="section-title"/>
+                <ui:Label class="section-body" text="Default layers are Background, Screen, Popup, Overlay, and Tooltip. Pair views with UITransitionSettings when you want fade or scale transitions."/>
+            </ui:VisualElement>
+        </ui:ScrollView>
+
+        <ui:ScrollView name="panel-catalog" class="panel panel-hidden">
+            <ui:VisualElement class="section">
+                <ui:Label text="Catalog Selection" class="section-title"/>
+                <ui:VisualElement name="catalog-field-row" class="action-bar" style="margin-bottom: 8px;"/>
+                <ui:VisualElement name="catalog-action-row" class="action-bar" style="margin-bottom: 4px;"/>
+                <ui:Label name="label-catalog-status" text="" class="status-label"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="Entries" class="section-title"/>
+                <ui:VisualElement name="entries-container"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="Validation" class="section-title"/>
+                <ui:VisualElement name="validation-container"/>
+            </ui:VisualElement>
+        </ui:ScrollView>
+
+        <ui:ScrollView name="panel-scene" class="panel panel-hidden">
+            <ui:VisualElement class="section">
+                <ui:Label text="Current Scene" class="section-title"/>
+                <ui:VisualElement name="scene-fields-container"/>
+                <ui:VisualElement name="scene-action-row" class="action-bar" style="margin-top: 8px;"/>
+                <ui:Label name="label-scene-status" text="" class="status-label"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="VContainer Mode" class="section-title"/>
+                <ui:Label class="section-body" text="When you use VContainer, add AchEngineScope instead of UIBootstrapper. AchEngineScope registers IUIService and ITableService automatically."/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="section">
+                <ui:Label text="Default Root Structure" class="section-title"/>
+                <ui:Label class="section-body" text="A default UIRoot creates a Canvas, a scaler, a raycaster, and child transforms for the standard UI layers."/>
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

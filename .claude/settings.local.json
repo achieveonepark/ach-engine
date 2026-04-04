@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find C:ProjectscodexAchEngineUI -type f \\\\\\(-name *.cs -o -name *.uxml -o -name *.uss -o -name package.json \\\\\\))"
+    ]
+  }
+}
