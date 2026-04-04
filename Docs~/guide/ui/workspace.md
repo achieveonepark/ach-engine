@@ -49,7 +49,7 @@ ui.Show<ItemDetailView>(v => v.SetItem(item));      // 타입 + 초기화 콜백
 ui.Show("ItemDetail", v => ((ItemDetailView)v)      // ID + 콜백
     .SetItem(item));
 
-// ── 닫기 ────────────────────────────────────────────��─
+// ── 닫기 ──────────────────────────────────────────────
 ui.Close<MainMenuView>();                           // 타입
 ui.Close("MainMenu");                               // ID
 ui.CloseAll();                                      // 전체

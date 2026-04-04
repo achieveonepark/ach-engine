@@ -71,33 +71,42 @@ export default withMermaid({
         {
           text: 'DI 시스템',
           items: [
-            { text: 'DI 시스템', link: '/guide/di' },
-            { text: 'DI 라이프사이클', link: '/guide/lifecycle' },
+            { text: '개요', link: '/guide/di/' },
+            { text: 'AchEngineInstaller', link: '/guide/di/installer' },
+            { text: 'ServiceLocator', link: '/guide/di/locator' },
+            { text: 'DI 라이프사이클', link: '/guide/di/lifecycle' },
           ],
         },
         {
           text: 'UI 시스템',
           items: [
-            { text: 'UI System', link: '/guide/ui' },
-            { text: 'UI Workspace', link: '/guide/workspace' },
+            { text: '개요', link: '/guide/ui/' },
+            { text: 'UIView & 수명 주기', link: '/guide/ui/views' },
+            { text: 'UI Workspace', link: '/guide/ui/workspace' },
           ],
         },
         {
           text: 'Table Loader',
           items: [
-            { text: 'Table Loader', link: '/guide/table' },
+            { text: '개요', link: '/guide/table/' },
+            { text: '설정 & 다운로드', link: '/guide/table/setup' },
+            { text: '코드 생성 & 런타임', link: '/guide/table/codegen' },
           ],
         },
         {
           text: 'Addressables',
           items: [
-            { text: 'Addressables', link: '/guide/addressables' },
+            { text: '개요', link: '/guide/addressables/' },
+            { text: '감시 폴더 & 그룹', link: '/guide/addressables/folders' },
+            { text: '원격 콘텐츠', link: '/guide/addressables/remote' },
           ],
         },
         {
           text: 'Localization',
           items: [
-            { text: 'Localization', link: '/guide/localization' },
+            { text: '개요', link: '/guide/localization/' },
+            { text: '설정 & 데이터베이스', link: '/guide/localization/setup' },
+            { text: '키 상수 코드 생성', link: '/guide/localization/codegen' },
           ],
         },
         {
